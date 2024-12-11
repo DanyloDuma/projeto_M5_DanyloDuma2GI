@@ -1,0 +1,109 @@
+/* Estilo da barra de menu vertical */
+.menu-vertical {
+  font-family: Arial, sans-serif; /* Define a família da fonte */
+  font-size: 17px; /* Corrigido: removido o ponto extra */
+  position: fixed; /* Fixa o menu à esquerda */
+  top: 0;
+  left: 0;
+  width: 230px; /* Largura da barra */
+  height: 100%; /* Ocupa toda a altura da janela */
+  background: linear-gradient(to right, #84af97 0%, #ccee8d 100%); /* Gradiente de verde claro para branco */
+  padding: 10px; /* Reduz o espaçamento interno */
+  display: flex; /* Organiza o layout interno */
+  flex-direction: column; /* Alinha os itens verticalmente */
+  align-items: center; /* Centraliza horizontalmente os itens */
+  overflow: hidden; /* Remove o scroll */
+  z-index: 1000; /* Garante que o menu esteja acima de outros elementos */
+
+  .img-l {
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Estilo dos links no menu */
+.menu-vertical ul {
+  list-style: none; /* Remove as bolinhas da lista */
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Garante que os itens ocupem toda a largura do menu */
+}
+
+.menu-vertical ul li {
+  margin-bottom: 8px; /* Reduz o espaço entre os itens */
+}
+
+.menu-vertical ul li a {
+  display: block; /* Ocupa toda a largura do item */
+  text-decoration: none; /* Remove o sublinhado */
+  color: white;
+  padding: 8px 12px; /* Reduz o padding interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  transition: background-color 0.3s; /* Animação ao passar o mouse */
+  text-align: center; /* Centraliza o texto e os ícones */
+}
+
+.menu-vertical ul li a:hover,
+.menu-vertical ul li a.active {
+  background-color: #55555560; /* Cor ao passar o mouse ou página ativa */
+}
+
+/* Estilo do campo de pesquisa */
+.search-bar-container {
+  display: flex; /* Organiza o campo e o botão na mesma linha */
+  align-items: center; /* Alinha verticalmente */
+  width: 100%; /* Ocupa toda a largura disponível */
+  margin-bottom: 15px; /* Espaçamento abaixo do container */
+}
+
+.search-bar {
+  flex: 1; /* O campo ocupa todo o espaço restante */
+  padding: 8px; /* Mantém o padding original */
+  border: none;
+  border-radius: 5px 0 0 5px; /* Bordas arredondadas apenas no lado esquerdo */
+  outline: none;
+  font-size: 14px; /* Mantém a fonte original */
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  padding: 6.4px; /* Ajuste no padding */
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0; /* Bordas arredondadas apenas no lado direito */
+  cursor: pointer;
+  font-size: 14px; /* Mantém a fonte original */
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #777;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu-vertical {
+    width: 150px; /* Reduz a largura em telas menores */
+    padding: 5px; /* Reduz o espaçamento interno */
+  }
+
+  body {
+    background-color: #ccee8d;
+    margin-left: 150px; /* Ajusta o deslocamento do conteúdo */
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ccee8d 40%, #84af97 100%);
+  margin-left: 250px; /* Espaço à esquerda do conteúdo para não sobrepor o menu */
+  padding: 0; /* Removido o padding default */
+}
+
+.conteudo {
+  padding: 20px; /* Espaçamento interno do conteúdo */
+  background-color: white; /* Fundo do conteúdo, opcional */
+  border: 1px solid #ccc; /* Adiciona uma borda para separação, opcional */
+  border-radius: 5px; /* Bordas arredondadas, opcional */
+}
