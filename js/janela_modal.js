@@ -20,6 +20,6 @@ btnSim.addEventListener('click', () => {
 
 // Redirecionar ao clicar em "Não"
 btnNao.addEventListener('click', () => {
-  alert('Você será redirecionado para o Google.');
+  alert('Você será redirecionado para fora do site.');
   window.location.href = 'https://www.google.com'; // Redireciona para o Google
 });

@@ -202,12 +202,6 @@ body {
   padding-top: 10px; /* Espaçamento acima */
 }
 
-.vertical-line {
-  border-left: 2px solid #ffffff33; /* Linha vertical com 2px de espessura e cor preta */
-  height: 300px; /* Altura da linha */
-  margin: 10px; /* Espaçamento ao redor da linha */
-}
-
 /* Estilos para o Modal */
 .modal {
   display: none; /* Inicialmente escondido */
@@ -255,4 +249,27 @@ body {
 
 #btn-sim:hover, #btn-nao:hover {
   opacity: 0.9;
+}
+
+/* Estilo do botão fixo */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to right, #558068 20%, #8aa15e 100%);
+  color: white;
+  border: none;
+  border-radius: 35%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+.scroll-to-top-btn:hover {
+  background: linear-gradient(to right, #558068 20%, #8aa15e 100%);
 }
