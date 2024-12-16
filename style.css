@@ -7,7 +7,7 @@
   left: 0;
   width: 230px; /* Largura da barra */
   height: 100%; /* Ocupa toda a altura da janela */
-  background: linear-gradient(to right, #84af97 0%, #ccee8d 100%); /* Gradiente de verde claro para branco */
+  background: #5e8b73;
   padding: 10px; /* Reduz o espaçamento interno */
   display: flex; /* Organiza o layout interno */
   flex-direction: column; /* Alinha os itens verticalmente */
@@ -36,11 +36,13 @@
 .menu-vertical ul li a {
   display: block; /* Ocupa toda a largura do item */
   text-decoration: none; /* Remove o sublinhado */
-  color: white;
+  /* color:#8f417c; */
+  color:white;
   padding: 8px 12px; /* Reduz o padding interno */
   border-radius: 5px; /* Bordas arredondadas */
   transition: background-color 0.3s; /* Animação ao passar o mouse */
   text-align: center; /* Centraliza o texto e os ícones */
+  font-weight: bold;
 }
 
 .menu-vertical ul li a:hover,
@@ -68,7 +70,7 @@
 
 button[type="submit"] {
   padding: 6.4px; /* Ajuste no padding */
-  background-color: #555;
+  background-color: #ccee8d;
   color: white;
   border: none;
   border-radius: 0 5px 5px 0; /* Bordas arredondadas apenas no lado direito */
@@ -96,7 +98,7 @@ button[type="submit"]:hover {
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #ccee8d 40%, #84af97 100%);
+  background: linear-gradient(to right, #5e8b73 20%, #ccee8d 100%);
   margin-left: 250px; /* Espaço à esquerda do conteúdo para não sobrepor o menu */
   padding: 0; /* Removido o padding default */
 }
@@ -106,4 +108,151 @@ body {
   background-color: white; /* Fundo do conteúdo, opcional */
   border: 1px solid #ccc; /* Adiciona uma borda para separação, opcional */
   border-radius: 5px; /* Bordas arredondadas, opcional */
+}
+
+.footer {
+  background-color: #446453;
+  color: white; /* Texto branco para contraste */
+  padding: 20px 0; /* Espaçamento interno */
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex; /* Layout flexível */
+  flex-wrap: wrap; /* Ajusta em telas menores */
+  align-items: flex-start; /* Alinha no topo */
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza o conteúdo */
+  padding: 0 20px; /* Espaçamento horizontal */
+}
+
+.footer-section {
+  flex: 1; /* Permite que as seções ocupem espaços iguais */
+  margin: 10px;
+  padding: 10px;
+  min-width: 200px; /* Largura mínima para evitar colapsos */
+}
+
+.footer-section h3, .footer-section h4 {
+  text-align: left; /* Garante alinhamento à esquerda */
+  font-size: 18px; /* Tamanho do título */
+  margin-bottom: 10px; /* Espaço abaixo do título */
+  font-weight: bold; /* Texto em negrito */
+}
+
+.footer-section ul {
+  list-style: none; /* Remove marcadores */
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Alinha itens à esquerda */
+}
+
+.footer-section ul li {
+  margin-bottom: 8px; /* Espaçamento entre itens */
+}
+
+.footer-section ul li a {
+  text-decoration: none; /* Remove sublinhado */
+  color: white;
+  transition: color 0.3s ease; /* Transição suave */
+}
+
+.footer-section ul li a:hover {
+  color: #ccee8d; /* Cor clara ao passar o mouse */
+}
+
+.footer h3, .footer h4 {
+  text-align: left; /* Garante alinhamento à esquerda */
+  font-size: 18px; /* Tamanho do título */
+  margin-bottom: 10px; /* Espaço abaixo do título */
+  font-weight: bold; /* Texto em negrito */
+}
+
+.footer p, .footer ul {
+  font-size: 14px; /* Tamanho do texto */
+  line-height: 1.6; /* Altura da linha */
+}
+
+.footer ul {
+  list-style: none; /* Remove marcadores */
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Alinha itens à esquerda */
+}
+
+.footer ul li {
+  margin-bottom: 8px;
+}
+
+.footer ul li a {
+  text-decoration: none; /* Remove sublinhado */
+  color: white;
+  transition: color 0.3s ease; /* Transição suave */
+}
+
+.footer ul li a:hover {
+  color: #ccee8d; /* Cor clara ao passar o mouse */
+}
+
+.footer-bottom {
+  text-align: center; /* Centraliza o texto */
+  font-size: 12px; /* Texto menor */
+  margin-top: 20px;
+  border-top: 1px solid #ffffff33; /* Linha separadora */
+  padding-top: 10px; /* Espaçamento acima */
+}
+
+.vertical-line {
+  border-left: 2px solid #ffffff33; /* Linha vertical com 2px de espessura e cor preta */
+  height: 300px; /* Altura da linha */
+  margin: 10px; /* Espaçamento ao redor da linha */
+}
+
+/* Estilos para o Modal */
+.modal {
+  display: none; /* Inicialmente escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#btn-sim {
+  background-color: #28a745;
+  color: white;
+}
+
+#btn-nao {
+  background-color: #dc3545;
+  color: white;
+}
+
+#btn-sim:hover, #btn-nao:hover {
+  opacity: 0.9;
 }
