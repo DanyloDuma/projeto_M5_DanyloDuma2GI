@@ -68,6 +68,19 @@
   margin-bottom: 20px;
 }
 
+/* Estilo dos resultados */
+#results {
+  margin-top: 20px;
+}
+
+#results div {
+  font-size: 16px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  margin: 5px 0;
+}
+
 button[type="submit"] {
   padding: 6.4px; /* Ajuste no padding */
   background-color: #ccee8d;
