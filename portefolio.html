@@ -15,7 +15,7 @@
         <button id="searchButton" type="submit">🔍</button>
         <li><a href="index.html">🏠 Início</a></li>
         <li><a href="galeria.html">🖼️ Galeria</a></li>
-        <li><a href="portefolio.html">👤 Portefólio</a></li>
+        <li><a href="portefolio.html" class="active">👤 Portefólio</a></li>
         <li><a href="favoritos.html">⭐ Favoritos</a></li>
         <li><a href="mapa.html">🗺️ Mapa do site</a></li>
         <li><a href="sobre.html">📄 Sobre</a></li>
@@ -25,23 +25,58 @@
   </header>
   <main class="conteudo">
     <h1>Portefólio</h1>
+    <div class="profile-container">
+      <!-- Foto de Perfil -->
+      <div class="profile-photo">
+        <img id="profileImg" src="img/avatar.png" alt="Foto de Perfil" width="150px" height="150px">
+        <input type="file" id="photoUpload" accept="image/*">
+      </div>
+
+      <!-- Detalhes do Perfil -->
+      <div class="profile-details">
+        <label for="name">Nome próprio:</label>
+        <input type="text" id="name" placeholder="Seu nome" maxlength="30" required>
+        
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Seu username" maxlength="20" required>
+        
+        <label for="age">Idade:</label>
+        <input type="number" id="age" placeholder="Sua idade" min="1" max="100" required>
+        
+        <label for="nationality">Nacionalidade:</label>
+        <input type="text" id="nationality" placeholder="Sua nacionalidade" maxlength="20" required>
+        
+        <label for="bio">Percurso Profissional:</label>
+        <textarea id="bio" placeholder="Escreva sobre seu percurso profissional" maxlength="500" required></textarea>
+        <span id="bioCounter">Restam 500 caracteres.</span>
+        <div class="profile-buttons">
+          <button id="saveBtn">Guardar</button>
+          <button id="clearBtn">Limpar</button>
+        </div>
+      </div>
+      
+    </div>
   </main>
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-section">
         <img class="img-l" src="img/PicHub-white-removebg.png" alt="PicHub White Logo" width="140px">
-        <p>PicHub é uma plataforma dedicada à partilha, gestão e exploração de imagens. Aqui, pode criar o seu portefólio, 
-          marcar os seus favoritos e acompanhar estatísticas sobre as suas criações. 
-          A nossa missão é conectar criadores e apreciadores de imagens num ambiente intuitivo e seguro.
-        </p>
+        <p>PicHub é uma plataforma dedicada à partilha, gestão e exploração de imagens. Aqui, pode criar o seu portefólio, marcar os seus favoritos e acompanhar estatísticas sobre as suas criações. A nossa missão é conectar criadores e apreciadores de imagens num ambiente intuitivo e seguro.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy;Copyright 2024-2025 PICHUB - Todos os direitos reservados (<a href="privacidade.html">Política de Privacidade</a>)</p>
+      <p>&copy;Copyright 2024-2025 PICHUB - Todos os direitos reservados 
+      (<a href="privacidade.html">Política de Privacidade</a>)</p>
     </div>
   </footer>
-  <button id="scrollToTopBtn" class="scroll-to-top-btn" onclick="scrollToTop()">↑</button>
-  <script src="js/botao_cima.js"></script>
-  <script src="js/pesquisa.js"></script>
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <p id="notificationMessage"></p>
+      <div class="modal-buttons">
+        <button id="closeModalBtn">OK</button>
+      </div>
+    </div>
+  </div>  
+  <script src="js/portefolio.js"></script>
 </body>
 </html>
