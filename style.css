@@ -37,7 +37,7 @@
   display: block; /* Ocupa toda a largura do item */
   text-decoration: none; /* Remove o sublinhado */
   /* color:#8f417c; */
-  color:white;
+  color: white;
   padding: 8px 12px; /* Reduz o padding interno */
   border-radius: 5px; /* Bordas arredondadas */
   transition: background-color 0.3s; /* Animação ao passar o mouse */
@@ -146,7 +146,8 @@ body {
   min-width: 200px; /* Largura mínima para evitar colapsos */
 }
 
-.footer-section h3, .footer-section h4 {
+.footer-section h3,
+.footer-section h4 {
   text-align: left; /* Garante alinhamento à esquerda */
   font-size: 18px; /* Tamanho do título */
   margin-bottom: 10px; /* Espaço abaixo do título */
@@ -174,14 +175,16 @@ body {
   color: #ccee8d; /* Cor clara ao passar o mouse */
 }
 
-.footer h3, .footer h4 {
+.footer h3,
+.footer h4 {
   text-align: left; /* Garante alinhamento à esquerda */
   font-size: 18px; /* Tamanho do título */
   margin-bottom: 10px; /* Espaço abaixo do título */
   font-weight: bold; /* Texto em negrito */
 }
 
-.footer p, .footer ul {
+.footer p,
+.footer ul {
   font-size: 14px; /* Tamanho do texto */
   line-height: 1.6; /* Altura da linha */
 }
@@ -260,7 +263,8 @@ body {
   color: white;
 }
 
-#btn-sim:hover, #btn-nao:hover {
+#btn-sim:hover,
+#btn-nao:hover {
   opacity: 0.9;
 }
 
@@ -331,7 +335,7 @@ body {
   font-weight: bold;
 }
 
-.profile-details input, 
+.profile-details input,
 .profile-details textarea {
   width: 100%;
   padding: 10px;
