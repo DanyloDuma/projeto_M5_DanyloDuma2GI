@@ -1,34 +1,40 @@
 class Search {
-  constructor() {
-      this.searchInput = document.querySelector('.search-bar'); // Caixa de pesquisa
-      this.searchButton = document.getElementById('searchButton'); // Botão de pesquisa
-      this.setupEventListeners(); // Configura os ouvintes de eventos
-  }
+    constructor(searchInputSelector = '.search-bar', searchButtonSelector = '#searchButton') {
+        this.searchInput = document.querySelector(searchInputSelector); // Caixa de pesquisa
+        this.searchButton = document.querySelector(searchButtonSelector); // Botão de pesquisa
 
-  setupEventListeners() {
-      // Ao clicar no botão de pesquisa
-      this.searchButton.addEventListener('click', () => this.performSearch());
+        if (this.searchInput && this.searchButton) {
+            this.setupEventListeners();
+        } else {
+            console.error('Elementos de busca não encontrados.');
+        }
+    }
 
-      // Ao pressionar "Enter" na caixa de pesquisa
-      this.searchInput.addEventListener('keypress', (event) => {
-          if (event.key === 'Enter') {
-              this.performSearch();
-          }
-      });
-  }
+    setupEventListeners() {
+        // Evento ao clicar no botão de pesquisa
+        this.searchButton.addEventListener('click', () => this.performSearch());
 
-  // Realiza a pesquisa e redireciona para a página de resultados
-  performSearch() {
-      let searchTerm = this.searchInput.value.trim().toLowerCase(); // Termo de pesquisa
+        // Evento ao pressionar Enter no campo de busca
+        this.searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                this.performSearch();
+            }
+        });
+    }
 
-      if (searchTerm) {
-          // Redireciona para a página de resultados com o termo de pesquisa
-          window.location.href = `resultados.html?search=${encodeURIComponent(searchTerm)}`;
-      }
-  }
+    performSearch() {
+        const searchTerm = this.searchInput.value.trim(); // Captura o termo de busca
+
+        if (searchTerm) {
+            // Redireciona para resultados.html com o termo na URL
+            window.location.href = `resultados.html?search=${encodeURIComponent(searchTerm)}`;
+        } else {
+            alert('Por favor, insira um termo para pesquisa.');
+        }
+    }
 }
 
-// Inicializa a funcionalidade de pesquisa
+// Inicializa a funcionalidade de busca
 document.addEventListener('DOMContentLoaded', () => {
-  new Search();
+    new Search();
 });

@@ -1,43 +1,50 @@
-class Resultados {
-  constructor() {
-      this.resultsDiv = document.getElementById('results'); // Onde os resultados serão exibidos
-      this.getSearchTerm();
+document.addEventListener("DOMContentLoaded", async () => {
+  const params = new URLSearchParams(window.location.search);
+  const searchTerm = params.get("search");
+  const resultsContainer = document.getElementById("results");
+
+  if (!resultsContainer) {
+    console.error("O container de resultados não foi encontrado.");
+    return;
   }
 
-  // Pega o termo de pesquisa da URL
-  getSearchTerm() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const searchTerm = urlParams.get('search');
+  // Carregar dados do JSON
+  try {
+    const response = await fetch("js/imagens.json");
+    const galleryItems = await response.json();
 
-      if (searchTerm) {
-          this.displayResults(searchTerm);
-      }
-  }
+    if (searchTerm) {
+      const searchTitle = document.createElement("h2");
+      searchTitle.textContent = `Resultados para: "${searchTerm}"`;
+      resultsContainer.appendChild(searchTitle);
 
-  // Exibe os resultados
-  displayResults(searchTerm) {
-      let foundResults = [];
-      const paragraphs = document.querySelectorAll('main p'); // Aqui, buscamos por parágrafos na página de resultados
-      paragraphs.forEach(paragraph => {
-          if (paragraph.textContent.toLowerCase().includes(searchTerm)) {
-              foundResults.push(paragraph.textContent);
-          }
-      });
+      // Filtrar resultados
+      const filteredItems = galleryItems.filter(
+        (item) =>
+          item.alt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.genero.toLowerCase().includes(searchTerm.toLowerCase())
+      );
 
-      // Exibe os resultados ou uma mensagem de "nenhum resultado encontrado"
-      if (foundResults.length > 0) {
-          foundResults.forEach(result => {
-              let resultElement = document.createElement("div");
-              resultElement.textContent = result;
-              this.resultsDiv.appendChild(resultElement);
-          });
+      if (filteredItems.length > 0) {
+        filteredItems.forEach((item) => {
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("result-item");
+
+          // Exibir a imagem e informações
+          itemElement.innerHTML = `
+                        <img src="${item.src}" alt="${item.alt}" class="result-img">
+                        <p>${item.alt} (${item.genero})</p>
+                    `;
+          resultsContainer.appendChild(itemElement);
+        });
       } else {
-          this.resultsDiv.innerHTML = "<p><b>Nenhum resultado encontrado</b></p>";
+        resultsContainer.textContent = "Nenhum resultado encontrado.";
       }
+    } else {
+      resultsContainer.textContent = "Por favor, insira um termo de pesquisa.";
+    }
+  } catch (error) {
+    resultsContainer.textContent = "Erro ao carregar os dados.";
+    console.error("Erro ao carregar o JSON de imagens:", error);
   }
-}
-
-// Inicializa a exibição dos resultados
-document.addEventListener('DOMContentLoaded', () => {
-  new Resultados();
 });

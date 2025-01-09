@@ -1,0 +1,11 @@
+[
+  { "src": "img/foto1.jpg", "alt": "Homem de gorro", "genero": "pessoas" },
+  { "src": "img/foto2.jpg", "alt": "Mulher de rosa", "genero": "pessoas" },
+  { "src": "img/foto3.jpg", "alt": "Coruja", "genero": "animais" },
+  { "src": "img/foto4.jpg", "alt": "Tigre", "genero": "animais" },
+  { "src": "img/foto5.jpg", "alt": "Leopardo", "genero": "animais" },
+  { "src": "img/foto6.jpg", "alt": "Pássaro", "genero": "animais" },
+  { "src": "img/foto7.jpg", "alt": "Abstração", "genero": "abstração" },
+  { "src": "img/foto8.jpg", "alt": "Natureza", "genero": "natureza" },
+  { "src": "img/foto9.jpg", "alt": "Natureza fria", "genero": "natureza" }
+]
