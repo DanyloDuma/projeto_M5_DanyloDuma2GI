@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Carregar dados do JSON
   try {
     const response = await fetch("js/imagens.json");
+    if (!response.ok) {
+      throw new Error("Falha ao carregar o JSON de imagens.");
+    }
     const galleryItems = await response.json();
 
     if (searchTerm) {
@@ -25,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           item.genero.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
+      // Exibe os resultados filtrados
       if (filteredItems.length > 0) {
         filteredItems.forEach((item) => {
           const itemElement = document.createElement("div");
@@ -36,15 +40,51 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <p>${item.alt} (${item.genero})</p>
                     `;
           resultsContainer.appendChild(itemElement);
+
+          // Adicionar evento de clique na div do resultado
+          itemElement.addEventListener("click", () => openModal(item));
         });
       } else {
-        resultsContainer.textContent = "Nenhum resultado encontrado.";
+        const noResult = document.createElement("p");
+        noResult.textContent = "Nenhum resultado encontrado.";
+        resultsContainer.appendChild(noResult);
       }
     } else {
-      resultsContainer.textContent = "Por favor, insira um termo de pesquisa.";
+      const noTerm = document.createElement("p");
+      noTerm.textContent = "Por favor, insira um termo de pesquisa.";
+      resultsContainer.appendChild(noTerm);
     }
   } catch (error) {
-    resultsContainer.textContent = "Erro ao carregar os dados.";
+    const errorMsg = document.createElement("p");
+    errorMsg.textContent = "Erro ao carregar os dados.";
+    resultsContainer.appendChild(errorMsg);
     console.error("Erro ao carregar o JSON de imagens:", error);
   }
+
+  // Função para abrir o modal
+  const modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  const captionText = document.getElementById("caption");
+  const closeButton = modal.querySelector(".close");
+
+  function openModal(item) {
+    modal.style.display = "flex";
+    modalImage.src = item.src;
+    modalImage.alt = item.alt;
+    captionText.textContent = `${item.alt} (${item.genero})`;
+  }
+
+  // Fechar o modal ao clicar no botão "X"
+  if (closeButton) {
+    closeButton.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
+
+  // Fechar o modal ao clicar fora da imagem
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 });

@@ -428,26 +428,43 @@ body {
 }
 
 .galeria-modal {
-  display: none;
+  display: none; /* Inicialmente escondido */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo semitransparente */
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  transition: opacity 0.3s ease;
 }
 
 .galeria-modal img {
-  max-width: 100vw; /* A largura máxima da imagem será o tamanho da largura da janela de visualização */
-  max-height: 100vh; /* A altura máxima da imagem será o tamanho da altura da janela de visualização */
+  max-width: 90vw; /* Largura máxima da imagem é 90% da viewport */
+  max-height: 90vh; /* Altura máxima da imagem é 90% da viewport */
   display: block; /* Garante que a imagem seja exibida como um bloco */
   margin: 0 auto; /* Centraliza a imagem horizontalmente no modal */
   object-fit: contain; /* Mantém a proporção da imagem */
+  border-radius: 10px;
 }
 
+/* Botão de fechar o modal (X) */
+.galeria-modal::before {
+  content: '✖';
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+}
+
+.galeria-modal::before:hover {
+  color: #ccee8d;
+}
 
 .galeria-modal.close {
   display: none;
@@ -462,6 +479,7 @@ body {
   font-size: 18px;
 }
 
+/* Estilos dos Resultados */
 .result-item {
   display: flex;
   align-items: center;
@@ -469,6 +487,12 @@ body {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.result-item:hover {
+  background-color: #f9f9f9;
 }
 
 .result-img {
@@ -476,10 +500,34 @@ body {
   height: 100px;
   object-fit: cover;
   margin-right: 10px;
+  border-radius: 5px;
 }
 
 .result-item p {
   margin: 0;
   font-size: 16px;
   color: #333;
+}
+
+.galeria-modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.galeria-modal.hide {
+  opacity: 0;
+}
+
+.favoritar-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.favoritar-btn:hover {
+  background-color: #ffaa00;
 }

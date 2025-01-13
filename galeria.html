@@ -1,51 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link type="text/css" rel="stylesheet" href="style.css">
-  <title>Galeria</title>
-</head>
-<body>
-  <header>
-    <nav class="menu-vertical">
-      <a href="index.html"><img class="img-l" src="img/PicHub-white-removebg.png" alt="PicHub White Logo" width="215px"></a>
-      <ul>
-        <input class="search-bar" type="search" placeholder="Pesquisar..." name="query">
-        <button id="searchButton" type="submit">🔍</button>
-        <li><a href="index.html">🏠 Início</a></li>
-        <li><a href="galeria.html">🖼️ Galeria</a></li>
-        <li><a href="portefolio.html">👤 Portefólio</a></li>
-        <li><a href="favoritos.html">⭐ Favoritos</a></li>
-        <li><a href="mapa.html">🗺️ Mapa do site</a></li>
-        <li><a href="sobre.html">📄 Sobre</a></li>
-        <li><a href="settings.html">⚙️ Configurações</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main class="conteudo">
-    <h1>Galeria</h1>
-    <section id="galeria" class="galeria-grid">
-      <!-- As imagens serão carregadas dinamicamente aqui -->
-    </section>
-  </main>
-  <script src="js/galeria.js"></script>
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-section">
-        <img class="img-l" src="img/PicHub-white-removebg.png" alt="PicHub White Logo" width="140px">
-        <p>PicHub é uma plataforma dedicada à partilha, gestão e exploração de imagens. Aqui, pode criar o seu portefólio, 
-          marcar os seus favoritos e acompanhar estatísticas sobre as suas criações. 
-          A nossa missão é conectar criadores e apreciadores de imagens num ambiente intuitivo e seguro.
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <title>Galeria</title>
+  </head>
+  <body>
+    <header>
+      <nav class="menu-vertical">
+        <a href="index.html"
+          ><img
+            class="img-l"
+            src="img/PicHub-white-removebg.png"
+            alt="PicHub White Logo"
+            width="215px"
+        /></a>
+        <ul>
+          <input
+            class="search-bar"
+            type="search"
+            placeholder="Pesquisar..."
+            name="query"
+          />
+          <button id="searchButton" type="submit">🔍</button>
+          <li><a href="index.html">🏠 Início</a></li>
+          <li><a href="galeria.html">🖼️ Galeria</a></li>
+          <li><a href="portefolio.html">👤 Portefólio</a></li>
+          <li><a href="favoritos.html">⭐ Favoritos</a></li>
+          <li><a href="mapa.html">🗺️ Mapa do site</a></li>
+          <li><a href="sobre.html">📄 Sobre</a></li>
+          <li><a href="settings.html">⚙️ Configurações</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="conteudo">
+      <h1>Galeria</h1>
+      <section id="galeria" class="galeria-grid">
+        <!-- As imagens serão carregadas dinamicamente aqui -->
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <img
+            class="img-l"
+            src="img/PicHub-white-removebg.png"
+            alt="PicHub White Logo"
+            width="140px"
+          />
+          <p>
+            PicHub é uma plataforma dedicada à partilha, gestão e exploração de
+            imagens. Aqui, pode criar o seu portefólio, marcar os seus favoritos
+            e acompanhar estatísticas sobre as suas criações. A nossa missão é
+            conectar criadores e apreciadores de imagens num ambiente intuitivo
+            e seguro.
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy;Copyright 2024-2025 PICHUB - Todos os direitos reservados (<a
+            href="privacidade.html"
+            >Política de Privacidade</a
+          >)
         </p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy;Copyright 2024-2025 PICHUB - Todos os direitos reservados (<a href="privacidade.html">Política de Privacidade</a>)</p>
-    </div>
-  </footer>
-  <button id="scrollToTopBtn" class="scroll-to-top-btn" onclick="scrollToTop()">↑</button>
-  <script src="js/botao_cima.js"></script>
-  <script src="js/pesquisa.js"></script>
-</body>
+    </footer>
+    <button
+      id="scrollToTopBtn"
+      class="scroll-to-top-btn"
+      onclick="scrollToTop()"
+    >
+      ↑
+    </button>
+    <script src="js/favoritos.js"></script>
+    <script src="js/botao_cima.js"></script>
+    <script src="js/pesquisa.js"></script>
+    <script src="js/galeria.js"></script>
+  </body>
 </html>
