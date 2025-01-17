@@ -76,5 +76,11 @@
     <script src="js/pesquisa.js"></script>
     <script src="js/galeria.js"></script>
     <script src="js/resultados.js"></script>
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+      }
+    </script>
   </body>
 </html>

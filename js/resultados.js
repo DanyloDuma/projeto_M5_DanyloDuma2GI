@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (searchTerm) {
       const searchTitle = document.createElement("h2");
-      searchTitle.textContent = `Resultados para: "${searchTerm}"`;
+      searchTitle.textContent = `Resultados para: ${searchTerm}`;
       resultsContainer.appendChild(searchTitle);
 
       // Filtrar resultados
@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
           // Exibir a imagem e informações
           itemElement.innerHTML = `
-                        <img src="${item.src}" alt="${item.alt}" class="result-img">
-                        <p>${item.alt} (${item.genero})</p>
-                    `;
+            <img src="${item.src}" alt="${item.alt}" class="result-img">
+            <p>${item.alt} (${item.genero})</p>
+          `;
           resultsContainer.appendChild(itemElement);
 
           // Adicionar evento de clique na div do resultado

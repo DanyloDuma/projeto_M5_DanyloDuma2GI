@@ -36,7 +36,6 @@
 .menu-vertical ul li a {
   display: block; /* Ocupa toda a largura do item */
   text-decoration: none; /* Remove o sublinhado */
-  /* color:#8f417c; */
   color: white;
   padding: 8px 12px; /* Reduz o padding interno */
   border-radius: 5px; /* Bordas arredondadas */
@@ -452,7 +451,7 @@ body {
 
 /* Botão de fechar o modal (X) */
 .galeria-modal::before {
-  content: '✖';
+  content: "✖";
   position: absolute;
   top: 20px;
   right: 30px;
@@ -531,3 +530,240 @@ body {
 .favoritar-btn:hover {
   background-color: #ffaa00;
 }
+.remover-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.remover-btn:hover {
+  background-color: darkred;
+}
+
+/* Tema Escuro */
+body.dark-theme {
+  background: linear-gradient(to right, #392455 20%, #8a45d4 100%);
+  color: #f0f0f0;
+}
+
+body.dark-theme .menu-vertical {
+  background: #392455;
+}
+
+body.dark-theme .menu-vertical ul li a {
+  color: #ddd;
+}
+
+body.dark-theme .menu-vertical ul li a:hover,
+body.dark-theme .menu-vertical ul li a.active {
+  background-color: #5d3a7e60;
+}
+
+body.dark-theme .conteudo {
+  background-color: #3d2f66;
+  color: #eee;
+  border: 1px solid #5d3a7e;
+}
+
+body.dark-theme .footer {
+  background-color: #442f61;
+  color: #ddd;
+}
+
+body.dark-theme .footer ul li a {
+  color: #aaa;
+}
+
+body.dark-theme .footer ul li a:hover {
+  color: #e0b3ff;
+}
+
+/* Outros estilos específicos para o tema escuro podem ser adicionados aqui */
+
+/* Estilo para tema escuro */
+body.dark-theme button[type="submit"] {
+  padding: 6.4px; /* Ajuste no padding */
+  background-color: #503066; /* Roxo escuro para tema dark */
+  color: white; /* Cor do texto branco para contraste */
+  border: none; /* Remove borda */
+  border-radius: 0 5px 5px 0; /* Bordas arredondadas no lado direito */
+  cursor: pointer; /* Indica botão clicável */
+  font-size: 14px; /* Tamanho da fonte */
+  transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+}
+
+body.dark-theme button[type="submit"]:hover {
+  background-color: #784799; /* Roxo mais claro ao passar o mouse */
+}
+
+body.dark-theme button[type="submit"]:focus {
+  outline: 2px solid #bb89d6; /* Destaque com um tom de roxo mais claro */
+  outline-offset: 2px;
+}
+
+body.dark-theme button[type="submit"]:disabled {
+  background-color: #322244; /* Roxo bem escuro para desativado */
+  color: #888; /* Cinza claro para texto desativado */
+  cursor: not-allowed; /* Indicador de botão desativado */
+}
+
+body.dark-theme .profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+  background-color: #583869;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .profile-details input,
+.profile-details textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #442853;
+  border-radius: 5px;
+}
+
+body.dark-theme .profile-details button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4e2863;
+  color: #fff;
+  cursor: pointer;
+}
+
+body.dark-theme #saveBtn {
+  width: 100px;
+  padding: 10px;
+  background-color: #835d9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-theme #saveBtn:hover {
+  background-color: #67487c;
+}
+
+body.dark-theme #clearBtn {
+  width: 100px;
+  padding: 10px;
+  background-color: #835d9c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-theme #clearBtn:hover {
+  background-color: #67487c;
+}
+
+body.dark-theme #bioCounter {
+  font-size: 12px;
+  color: #c8a4d1;
+  margin-top: -5px;
+}
+
+body.dark-theme .footer-bottom a {
+  color: #d289e9;
+}
+
+/* Estilo do botão fixo */
+body.dark-theme .scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to right, #533779 20%, #7239af 100%);
+  color: white;
+  border: none;
+  border-radius: 35%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  display: none;
+  z-index: 1000;
+}
+
+body.dark-theme .scroll-to-top-btn:hover {
+  background: linear-gradient(to right, #5c3a88 20%, #9c4fee 100%);
+}
+
+/* Modal */
+.galeria-modal-foto {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content-foto {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+.modal-content-foto label {
+  display: block;
+  margin-top: 10px;
+}
+
+.modal-content-foto input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.modal-content-foto button {
+  margin-top: 15px;
+  padding: 10px 20px;
+}
+
+/* Botão "Inserir Fotografia" */
+#btn-publicar, #btn-inserir-foto {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-publica:hover {
+  background: #45a049;
+}
+
+#btn-fechar-modal {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-fechar-modal:hover {
+  background: #45a049;
+}
+

@@ -36,7 +36,12 @@
     </header>
     <main class="conteudo">
       <h1>Definições</h1>
+      <label for="dark-mode-toggle">
+        <input type="checkbox" id="dark-mode-toggle" />
+        Ativar Tema Escuro <b>(Roxo)</b>
+      </label>
     </main>
+
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-section">
@@ -76,5 +81,12 @@
     <script src="js/pesquisa.js"></script>
     <script src="js/resultados.js"></script>
     <script src="js/galeria.js"></script>
+    <script src="js/tema.js"></script>
+    <script>
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-theme");
+      }
+    </script>
   </body>
 </html>
