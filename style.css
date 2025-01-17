@@ -741,7 +741,8 @@ body.dark-theme .scroll-to-top-btn:hover {
 }
 
 /* Botão "Inserir Fotografia" */
-#btn-publicar, #btn-inserir-foto {
+#btn-publicar,
+#btn-inserir-foto {
   background: #4caf50;
   color: white;
   border: none;
@@ -766,4 +767,3 @@ body.dark-theme .scroll-to-top-btn:hover {
 #btn-fechar-modal:hover {
   background: #45a049;
 }
-
