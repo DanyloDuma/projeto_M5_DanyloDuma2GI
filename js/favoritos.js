@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const img = document.createElement("img");
       img.src = src;
-      img.alt = src;
+      img.alt = "Imagem favorita";
 
       const removerBtn = document.createElement("button");
       removerBtn.textContent = "Remover";

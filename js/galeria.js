@@ -9,19 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
   modalDetalhes.className = "galeria-modal";
   document.body.appendChild(modalDetalhes);
 
+  // Carregar os dados de favoritos e imagens do localStorage
   let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
   let imagens = JSON.parse(localStorage.getItem("imagens")) || [];
 
-  // Função para salvar imagens no localStorage
-  function salvarImagensLocalStorage() {
+  // Função para salvar imagens e favoritos no localStorage
+  function salvarNoLocalStorage() {
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
     localStorage.setItem("imagens", JSON.stringify(imagens));
   }
 
-  // Abrir e fechar o modal de inserção
+  // Abrir o modal de inserção
   btnInserirFoto.addEventListener("click", () => {
     modalInserir.style.display = "flex";
   });
 
+  // Fechar o modal de inserção
   btnFecharModal.addEventListener("click", () => {
     modalInserir.style.display = "none";
   });
@@ -44,10 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         imagens.push(novaImagem); // Adicionar ao array
-        salvarImagensLocalStorage(); // Salvar no localStorage
+        salvarNoLocalStorage(); // Salvar no localStorage
         adicionarImagemNaGaleria(novaImagem); // Adicionar na galeria
-
-        console.log("Imagem adicionada:", novaImagem);
 
         modalInserir.style.display = "none"; // Fechar modal
         formInserir.reset(); // Limpar formulário
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .then((response) => response.json())
       .then((data) => {
         imagens = data;
-        salvarImagensLocalStorage();
+        salvarNoLocalStorage();
         data.forEach(adicionarImagemNaGaleria);
       });
   }
@@ -98,13 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
         favoritos = favoritos.filter((src) => src !== imagem.src);
         favoritarBtn.textContent = "⭐ Favoritar";
       }
-      localStorage.setItem("favoritos", JSON.stringify(favoritos));
+      salvarNoLocalStorage(); // Atualizar localStorage
     });
 
     // Remover imagem
     removerBtn.addEventListener("click", () => {
       imagens = imagens.filter((img) => img.src !== imagem.src);
-      salvarImagensLocalStorage(); // Atualizar localStorage
+      favoritos = favoritos.filter((src) => src !== imagem.src); // Garantir que favoritos sejam removidos também
+      salvarNoLocalStorage(); // Atualizar localStorage
       div.remove(); // Remover do DOM
     });
 
@@ -140,13 +142,14 @@ document.addEventListener("DOMContentLoaded", () => {
             favoritos = favoritos.filter((src) => src !== imagem.src);
             favoritarModalBtn.textContent = "⭐ Favoritar";
           }
-          localStorage.setItem("favoritos", JSON.stringify(favoritos));
+          salvarNoLocalStorage(); // Atualizar localStorage
         });
 
         // Remover imagem do modal
         removerModalBtn.addEventListener("click", () => {
           imagens = imagens.filter((img) => img.src !== imagem.src);
-          salvarImagensLocalStorage(); // Atualizar localStorage
+          favoritos = favoritos.filter((src) => src !== imagem.src); // Remover dos favoritos
+          salvarNoLocalStorage(); // Atualizar localStorage
           modalDetalhes.style.display = "none"; // Fechar o modal
           div.remove(); // Remover do DOM
         });
