@@ -19,8 +19,37 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("imagens", JSON.stringify(imagens));
   }
 
-  // Abrir o modal de inserção
+  // Gerar expressão matemática simples para o reCAPTCHA
+  function gerarCaptcha() {
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
+    const operador = Math.random() > 0.5 ? "+" : "-";
+    const resultado = operador === "+" ? num1 + num2 : num1 - num2;
+    return { expressao: `${num1} ${operador} ${num2}`, resultado };
+  }
+
+  // Adicionar campo de CAPTCHA no modal de inserção
+  const captchaContainer = document.createElement("div");
+  captchaContainer.id = "captcha-container";
+  captchaContainer.style.marginTop = "10px";
+  formInserir.appendChild(captchaContainer);
+
+  let captchaAtual = gerarCaptcha();
+  captchaContainer.innerHTML = `
+    <label for="captcha-resposta">Resolva: ${captchaAtual.expressao}</label>
+    <input type="number" id="captcha-resposta" required />
+    <p id="captcha-erro" style="color: red; display: none;">Resposta incorreta. Tente novamente.</p>
+  `;
+
+
+
+
+  // Atualizar CAPTCHA ao abrir o modal de inserção
   btnInserirFoto.addEventListener("click", () => {
+    captchaAtual = gerarCaptcha();
+    document.querySelector("#captcha-container label").textContent = `Resolva: ${captchaAtual.expressao}`;
+    document.getElementById("captcha-resposta").value = "";
+    document.getElementById("captcha-erro").style.display = "none";
     modalInserir.style.display = "flex";
   });
 
@@ -35,7 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const foto = document.getElementById("foto-upload").files[0];
     const titulo = document.getElementById("titulo-foto").value;
     const genero = document.getElementById("genero-foto").value;
+    const captchaResposta = parseInt(document.getElementById("captcha-resposta").value, 10);
 
+    if (captchaResposta !== captchaAtual.resultado) {
+      document.getElementById("captcha-erro").style.display = "block";
+      return;
+    }
+    
     if (foto && titulo && genero) {
       const reader = new FileReader();
 

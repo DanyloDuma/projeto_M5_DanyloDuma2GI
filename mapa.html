@@ -4,18 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link type="text/css" rel="stylesheet" href="style.css" />
-    <title>Página principal</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({ startOnLoad: true, theme: "default" });
+    </script>
+    <title>Mapa do Site</title>
   </head>
   <body>
     <header>
       <nav class="menu-vertical">
-        <a href="index.html"
-          ><img
+        <a href="index.html">
+          <img
             class="img-l"
             src="img/PicHub-white-removebg.png"
             alt="PicHub White Logo"
             width="215px"
-        /></a>
+          />
+        </a>
         <ul>
           <input
             class="search-bar"
@@ -35,7 +40,18 @@
       </nav>
     </header>
     <main class="conteudo">
-      <h1>mapa do site</h1>
+      <h1>Mapa do Site</h1>
+      <!-- Diagrama visual do site -->
+      <div class="mermaid">
+        graph TD
+          A[<a href="index.html">🏠 Início</a>] --> B[<a href="galeria.html">🖼️ Galeria</a>]
+          A --> C[<a href="portefolio.html">👤 Portefólio</a>]
+          A --> D[<a href="favoritos.html">⭐ Favoritos</a>]
+          A --> E[<a href="mapa.html">🗺️ Mapa do site</a>]
+          A --> F[<a href="sobre.html">📄 Sobre</a>]
+          F --> G[<a href="privacidade.html">📄 Privacidade</a>]
+          A --> H[<a href="settings.html">⚙️ Configurações</a>]
+      </div>
     </main>
     <footer class="footer">
       <div class="footer-container">

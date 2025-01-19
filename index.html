@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link type="text/css" rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Página principal</title>
   </head>
   <body>
@@ -48,8 +49,22 @@
       </nav>
     </header>
     <main class="conteudo">
-      <h1>index</h1>
+      <h1>Estatísticas de Imagens</h1>
+
+      <!-- Contêiner para organizar os gráficos lado a lado -->
+      <div class="graficos-container">
+        <div id="grafico-generos" class="grafico-card">
+          <h2>Distribuição de Géneros</h2>
+          <canvas id="graficoGeneros" width="400" height="400"></canvas>
+        </div>
+
+        <div id="grafico-favoritos" class="grafico-card">
+          <h2>Favoritos vs Não Favoritos</h2>
+          <canvas id="graficoFavoritos" width="400" height="400"></canvas>
+        </div>
+      </div>
     </main>
+
     <footer class="footer">
       <div class="footer-container">
         <div class="footer-section">
@@ -78,6 +93,7 @@
       </div>
     </footer>
     <script src="js/favoritos.js"></script>
+    <script src="js/graficos.js"></script>
     <script src="js/botao_cima.js"></script>
     <script src="js/pesquisa.js"></script>
     <script src="js/resultados.js"></script>

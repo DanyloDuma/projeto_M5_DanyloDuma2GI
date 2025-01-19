@@ -545,6 +545,111 @@ body {
   background-color: darkred;
 }
 
+/* Modal */
+.galeria-modal-foto {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content-foto {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+body.dark-theme .modal-content-foto {
+  background: rgb(72, 30, 92);
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+.modal-content-foto label {
+  display: block;
+  margin-top: 10px;
+}
+
+.modal-content-foto input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+
+.modal-content-foto button {
+  margin-top: 15px;
+  padding: 10px 20px;
+}
+
+/* Botão "Inserir Fotografia" */
+#btn-publicar,
+#btn-inserir-foto {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-publica:hover {
+  background: #45a049;
+}
+
+#btn-fechar-modal {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-fechar-modal:hover {
+  background: #45a049;
+}
+
+.graficos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espaçamento entre os gráficos */
+  justify-content: center; /* Centraliza os gráficos horizontalmente */
+  margin-top: 20px;
+}
+
+.grafico-card {
+  flex: 1 1 45%; /* Define que cada gráfico ocupará 45% do contêiner */
+  max-width: 400px; /* Limita o tamanho máximo do gráfico */
+  min-width: 300px; /* Tamanho mínimo para evitar encolhimento extremo */
+  text-align: center;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.grafico-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+canvas {
+  max-width: 100%; /* Garante que o gráfico se ajuste ao tamanho do contêiner */
+  height: auto; /* Mantém a proporção correta */
+}
+
 /* Tema Escuro */
 body.dark-theme {
   background: linear-gradient(to right, #392455 20%, #8a45d4 100%);
@@ -702,68 +807,64 @@ body.dark-theme .scroll-to-top-btn:hover {
   background: linear-gradient(to right, #5c3a88 20%, #9c4fee 100%);
 }
 
-/* Modal */
-.galeria-modal-foto {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+body.dark-theme #btn-publicar {
+  background: #835d9c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.modal-content-foto {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
-  text-align: center;
+body.dark-theme #btn-inserir-foto {
+  background: #835d9c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.modal-content-foto label {
-  display: block;
-  margin-top: 10px;
+body.dark-theme #btn-publica:hover {
+  background: #67487c;
 }
 
-.modal-content-foto input {
-  width: 100%;
-  padding: 8px;
+body.dark-theme #btn-fechar-modal {
+  background: #835d9c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.dark-theme #btn-fechar-modal:hover {
+  background: #67487c;
+}
+
+.site-map {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.site-map > li {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.site-map > li > a {
+  text-decoration: none;
+  color: #0366d6;
+}
+
+.site-map > li > a:hover {
+  text-decoration: underline;
+}
+
+.site-map ul {
   margin-top: 5px;
-}
-
-.modal-content-foto button {
-  margin-top: 15px;
-  padding: 10px 20px;
-}
-
-/* Botão "Inserir Fotografia" */
-#btn-publicar,
-#btn-inserir-foto {
-  background: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#btn-publica:hover {
-  background: #45a049;
-}
-
-#btn-fechar-modal {
-  background: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#btn-fechar-modal:hover {
-  background: #45a049;
+  margin-left: 20px;
+  font-size: 1rem;
+  color: #555;
 }
